@@ -1,0 +1,60 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}Restaurants{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <h1>All Cafes</h1>
+
+	  <table class="table">
+          {% for row in cafes %}
+          <tr>
+              {% for item in row %}
+                {% if item[0:4] == "http" %}
+                <td><a href="{{ item }}">Map link</a></td>
+                {% else %}
+                <td>{{ item }}</td>
+                {% endif %}
+              {% endfor %}
+              <td></td>
+          </tr>
+          {% endfor %}
+<!--          <thead>-->
+<!--            <tr>-->
+<!--              <th scope="col">Cafe Name</th>-->
+<!--              <th scope="col">Location</th>-->
+<!--              <th scope="col">Open</th>-->
+<!--              <th scope="col">Close</th>-->
+<!--                <th scope="col">Coffee</th>-->
+<!--                <th scope="col">Wifi</th>-->
+<!--                <th scope="col">Power</th>-->
+<!--            </tr>-->
+<!--        </thead>-->
+<!--          <tbody>-->
+<!--          {% for cafe in cafes:%}-->
+<!--            <tr>-->
+<!--                <th>{{cafe[0]}}</th>-->
+<!--                <th><a href="{{cafe[1]}}">Location</a></th>-->
+<!--                <th>{{cafe[2]}}</th>-->
+<!--                <th>{{cafe[3]}}</th>-->
+<!--                <th>{{cafe[4]}}</th>-->
+<!--                <th>{{cafe[5]}}</th>-->
+<!--                <th>{{cafe[6]}}</th>-->
+<!--            </tr>-->
+<!--          {%endfor%}-->
+<!--         </tbody>-->
+
+
+  	  </table>
+
+      <p><a href="{{ url_for('home') }}">Return to index page</a></p>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
